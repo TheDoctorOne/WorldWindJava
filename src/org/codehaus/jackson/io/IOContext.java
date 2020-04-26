@@ -125,8 +125,8 @@ public final class IOContext
 
     /**
      *<p>
-     * Note: the method can only be called once during its life cycle.This is to protect against accidental sharing.
-     * @return Undocumented.
+     * Note: the method can only be called once during its life cycle.
+     * This is to protect against accidental sharing.
      */
     public byte[] allocReadIOBuffer()
     {
@@ -176,7 +176,6 @@ public final class IOContext
     /**
      * Method to call when all the processing buffers can be safely
      * recycled.
-     * @param buf Undocumented.
      */
     public void releaseReadIOBuffer(byte[] buf)
     {

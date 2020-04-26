@@ -99,22 +99,19 @@ public @interface JsonAutoDetect
 	}
 	
     /**
-     * Types of property elements (getters, setters, fields, creators) that can
-     * be auto-detected.NOTE: as of 1.5, it is recommended that instead of
-     * defining this property, distinct visibility properties are used instead.
-     * This because levels used with this method are not explicit, but global
-     * defaults that differ for different methods. As such, this property can be
-     * considered <b>deprecated</b> and only retained for backwards
-     * compatibility.
-     *
-     * @return Undocumented
+     * Types of property elements (getters, setters, fields, creators) that
+     * can be auto-detected.
+     * NOTE: as of 1.5, it is recommended that instead of defining this property,
+     * distinct visibility properties are used instead. This because levels
+     * used with this method are not explicit, but global defaults that differ for different
+     * methods. As such, this property can be considered <b>deprecated</b> and
+     * only retained for backwards compatibility.
      */
     JsonMethod[] value() default { JsonMethod.ALL };
     
     /**
      * Minimum visibility required for auto-detecting regular getter methods.
      * 
-     * @return Undocumented
      * @since 1.5
      */
     Visibility getterVisibility() default Visibility.DEFAULT;
@@ -122,7 +119,6 @@ public @interface JsonAutoDetect
     /**
      * Minimum visibility required for auto-detecting is-getter methods.
      * 
-     * @return Undocumented
      * @since 1.5
      */
     Visibility isGetterVisibility() default Visibility.DEFAULT;
@@ -130,7 +126,6 @@ public @interface JsonAutoDetect
     /**
      * Minimum visibility required for auto-detecting setter methods.
      * 
-     * @return Undocumented
      * @since 1.5
      */    
     Visibility setterVisibility() default Visibility.DEFAULT;
@@ -140,7 +135,6 @@ public @interface JsonAutoDetect
      * except for no-argument constructors (which are always detected
      * no matter what).
      * 
-     * @return Undocumented
      * @since 1.5
      */
     Visibility creatorVisibility() default Visibility.DEFAULT;
@@ -148,7 +142,6 @@ public @interface JsonAutoDetect
     /**
      * Minimum visibility required for auto-detecting member fields.
      * 
-     * @return Undocumented
      * @since 1.5
      */ 
     Visibility fieldVisibility() default Visibility.DEFAULT;

@@ -28,7 +28,6 @@ public interface AirspaceAttributes extends ShapeAttributes
      *
      * @deprecated Use {@link #getInteriorMaterial()} instead.
      */
-    @Deprecated
     Material getMaterial();
 
     /**
@@ -39,7 +38,6 @@ public interface AirspaceAttributes extends ShapeAttributes
      *
      * @deprecated Use {@link #setInteriorMaterial(gov.nasa.worldwind.render.Material)} instead.
      */
-    @Deprecated
     void setMaterial(Material material);
 
     /**
@@ -51,7 +49,6 @@ public interface AirspaceAttributes extends ShapeAttributes
      *
      * @deprecated Use {@link #getInteriorOpacity()} instead.
      */
-    @Deprecated
     double getOpacity();
 
     /**
@@ -63,7 +60,6 @@ public interface AirspaceAttributes extends ShapeAttributes
      *
      * @deprecated Use {@link #setInteriorOpacity(double)} instead.
      */
-    @Deprecated
     void setOpacity(double opacity);
 
     /**
@@ -77,7 +73,6 @@ public interface AirspaceAttributes extends ShapeAttributes
      * @throws IllegalArgumentException if the drawing context is null.
      * @deprecated Use {@link Material#apply(com.jogamp.opengl.GL2, int)} or make OpenGL state changes directly.
      */
-    @Deprecated
     void applyInterior(DrawContext dc, boolean enableMaterial);
 
     /**
@@ -91,6 +86,5 @@ public interface AirspaceAttributes extends ShapeAttributes
      * @throws IllegalArgumentException if the drawing context is null.
      * @deprecated Use {@link Material#apply(com.jogamp.opengl.GL2, int)} or make OpenGL state changes directly.
      */
-    @Deprecated
     void applyOutline(DrawContext dc, boolean enableMaterial);
 }

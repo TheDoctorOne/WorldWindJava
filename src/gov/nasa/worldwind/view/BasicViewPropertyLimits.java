@@ -264,12 +264,10 @@ public class BasicViewPropertyLimits implements ViewPropertyLimits
      *
      * @param angle      angle to clamp to the allowed range.
      * @param viewLimits defines the heading limits.
-     * @return The clamped angle.
      *
      * @throws IllegalArgumentException if any argument is null.
      * @deprecated Use {@link #limitHeading(gov.nasa.worldwind.View, gov.nasa.worldwind.geom.Angle)} instead.
      */
-    @Deprecated
     public static Angle limitHeading(Angle angle, ViewPropertyLimits viewLimits)
     {
         if (angle == null)
@@ -305,12 +303,10 @@ public class BasicViewPropertyLimits implements ViewPropertyLimits
      *
      * @param angle      angle to clamp to the allowed range.
      * @param viewLimits defines the pitch limits.
-     * @return The clamped angle.
      *
      * @throws IllegalArgumentException if any argument is null.
      * @deprecated Use {@link #limitPitch(gov.nasa.worldwind.View, gov.nasa.worldwind.geom.Angle)} instead.
      */
-    @Deprecated
     public static Angle limitPitch(Angle angle, ViewPropertyLimits viewLimits)
     {
         if (angle == null)
@@ -345,12 +341,10 @@ public class BasicViewPropertyLimits implements ViewPropertyLimits
      *
      * @param angle      angle to clamp to the allowed range.
      * @param viewLimits defines the roll limits.
-     * @return The clamped angle.
      *
      * @throws IllegalArgumentException if any argument is null.
      * @deprecated Use {@link #limitRoll(gov.nasa.worldwind.View, gov.nasa.worldwind.geom.Angle)} instead.
      */
-    @Deprecated
     public static Angle limitRoll(Angle angle, ViewPropertyLimits viewLimits)
     {
         if (angle == null)
@@ -385,12 +379,10 @@ public class BasicViewPropertyLimits implements ViewPropertyLimits
      *
      * @param elevation  elevation to clamp to the allowed range.
      * @param viewLimits defines the eye elevation limits.
-     * @return The clamped angle.
      *
      * @throws IllegalArgumentException if any argument is null.
      * @deprecated Use {@link #limitEyePosition(gov.nasa.worldwind.View, gov.nasa.worldwind.geom.Position)} instead.
      */
-    @Deprecated
     public static double limitEyeElevation(double elevation, ViewPropertyLimits viewLimits)
     {
         if (viewLimits == null)
@@ -419,12 +411,10 @@ public class BasicViewPropertyLimits implements ViewPropertyLimits
      * @param latitude   latitude angle to clamp to the allowed range.
      * @param longitude  longitude angle to clamp to the allowed range.
      * @param viewLimits defines the eye location limits.
-     * @return The clamped angle.
      *
      * @throws IllegalArgumentException if any argument is null.
      * @deprecated Use {@link #limitEyePosition(gov.nasa.worldwind.View, gov.nasa.worldwind.geom.Position)} instead.
      */
-    @Deprecated
     public static LatLon limitEyePositionLocation(Angle latitude, Angle longitude, ViewPropertyLimits viewLimits)
     {
         if (latitude == null || longitude == null)
@@ -469,7 +459,6 @@ public class BasicViewPropertyLimits implements ViewPropertyLimits
     //******************** Restorable State  ***********************//
     //**************************************************************//
 
-    @Override
     public void getRestorableState(RestorableSupport rs, RestorableSupport.StateObject context)
     {
         rs.addStateValueAsSector(context, "eyeLocationLimits", this.eyeLocationLimits);
@@ -481,7 +470,6 @@ public class BasicViewPropertyLimits implements ViewPropertyLimits
         rs.addStateValueAsDouble(context, "maxPitchDegrees", this.maxPitch.degrees);
     }
 
-    @Override
     public void restoreState(RestorableSupport rs, RestorableSupport.StateObject context)
     {
         Sector sector = rs.getStateValueAsSector(context, "eyeLocationLimits");

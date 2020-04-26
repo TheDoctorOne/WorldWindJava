@@ -157,7 +157,7 @@ public class BasicOrbitViewLimits extends BasicViewPropertyLimits implements Orb
      *             gov.nasa.worldwind.geom.Position)}, {@link #limitHeading(gov.nasa.worldwind.View,
      *             gov.nasa.worldwind.geom.Angle)}, etc.
      */
-    @Deprecated
+    @SuppressWarnings("deprecation")
     public static void applyLimits(OrbitView view, OrbitViewLimits viewLimits)
     {
         if (view == null)
@@ -184,12 +184,11 @@ public class BasicOrbitViewLimits extends BasicViewPropertyLimits implements Orb
      *
      * @param position   position to clamp to the allowed range.
      * @param viewLimits defines the center location and elevation limits.
-     * @return The clamped position.
      *
      * @throws IllegalArgumentException if any argument is null.
      * @deprecated Use {@link #limitCenterPosition(gov.nasa.worldwind.View, gov.nasa.worldwind.geom.Position)} instead.
      */
-    @Deprecated
+    @SuppressWarnings("deprecation")
     public static Position limitCenterPosition(Position position, OrbitViewLimits viewLimits)
     {
         if (position == null)
@@ -216,12 +215,10 @@ public class BasicOrbitViewLimits extends BasicViewPropertyLimits implements Orb
      * @param latitude   latitude angle to clamp to the allowed range.
      * @param longitude  longitude angle to clamp to the allowed range.
      * @param viewLimits defines the center location limits.
-     * @return The clamped location.
      *
      * @throws IllegalArgumentException if any argument is null.
      * @deprecated Use {@link #limitCenterPosition(gov.nasa.worldwind.View, gov.nasa.worldwind.geom.Position)} instead.
      */
-    @Deprecated
     public static LatLon limitCenterLocation(Angle latitude, Angle longitude, OrbitViewLimits viewLimits)
     {
         if (latitude == null || longitude == null)
@@ -267,12 +264,10 @@ public class BasicOrbitViewLimits extends BasicViewPropertyLimits implements Orb
      *
      * @param value      elevation to clamp to the allowed range.
      * @param viewLimits defines the center elevation limits.
-     * @return The clamped elevation.
      *
      * @throws IllegalArgumentException if any argument is null.
      * @deprecated Use {@link #limitCenterPosition(gov.nasa.worldwind.View, gov.nasa.worldwind.geom.Position)} instead.
      */
-    @Deprecated
     public static double limitCenterElevation(double value, OrbitViewLimits viewLimits)
     {
         if (viewLimits == null)
@@ -302,12 +297,10 @@ public class BasicOrbitViewLimits extends BasicViewPropertyLimits implements Orb
      *
      * @param value      distance to clamp to the allowed range.
      * @param viewLimits defines the zoom distance limits.
-     * @return The clamped zoom.
      *
      * @throws IllegalArgumentException if any argument is null.
      * @deprecated Use {@link #limitZoom(gov.nasa.worldwind.View, double)} instead.
      */
-    @Deprecated
     public static double limitZoom(double value, OrbitViewLimits viewLimits)
     {
         if (viewLimits == null)
@@ -336,7 +329,6 @@ public class BasicOrbitViewLimits extends BasicViewPropertyLimits implements Orb
     //******************** Restorable State  ***********************//
     //**************************************************************//
 
-    @Override
     public void getRestorableState(RestorableSupport rs, RestorableSupport.StateObject context)
     {
         super.getRestorableState(rs, context);
@@ -348,7 +340,6 @@ public class BasicOrbitViewLimits extends BasicViewPropertyLimits implements Orb
         rs.addStateValueAsDouble(context, "maxZoom", this.maxZoom);
     }
 
-    @Override
     public void restoreState(RestorableSupport rs, RestorableSupport.StateObject context)
     {
         super.restoreState(rs, context);

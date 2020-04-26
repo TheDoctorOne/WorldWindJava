@@ -30,6 +30,8 @@ import java.lang.annotation.Target;
  * to <code>true</code>): but argument can be explicitly defined.
  * This can be done to override an existing JsonIgnore by explictly
  * defining one with 'false' argument.
+ *<p>
+ * Annotation is similar to {@link javax.xml.bind.annotation.XmlTransient} 
  */
 @Target({ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
@@ -43,7 +45,6 @@ public @interface JsonIgnore
      * with "mix-in annotations" (aka "annotation overrides").
      * For most cases, however, default value of "true" is just fine
      * and should be omitted.
-     * @return Undocumented
      */
     boolean value() default true;
 }

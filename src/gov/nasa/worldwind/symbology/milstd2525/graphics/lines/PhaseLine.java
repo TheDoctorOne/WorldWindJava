@@ -19,6 +19,7 @@ import java.util.*;
 
 /**
  * Implementation of phase line graphics. This class implements the following graphics:
+ * <p/>
  * <ul> <li>Phase Line (2.X.2.1.2.4)</li> <li>Light Line (2.X.2.1.2.5)</li> <li>Final Coordination Line
  * (2.X.2.5.2.3)</li> <li>Limits of Advance (2.X.2.5.2.5)</li> <li>Line of Departure (2.X.2.5.2.6)</li> <li>Line of
  * Departure/Line of Contact (2.X.2.5.2.7)</li> <li>Line of Departure/Line of Contact (2.X.2.5.2.8)</li> <li>Release
@@ -125,8 +126,9 @@ public class PhaseLine extends AbstractMilStd2525TacticalGraphic
     protected Path createPath()
     {
         Path path = new Path();
-        path.setSurfacePath(true);
+        path.setFollowTerrain(true);
         path.setPathType(AVKey.GREAT_CIRCLE);
+        path.setAltitudeMode(WorldWind.CLAMP_TO_GROUND);
         path.setDelegateOwner(this.getActiveDelegateOwner());
         path.setAttributes(this.getActiveShapeAttributes());
         return path;

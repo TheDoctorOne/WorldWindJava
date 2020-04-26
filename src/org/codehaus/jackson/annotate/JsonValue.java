@@ -6,7 +6,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Marker annotation
+ * Marker annotation similar to
+ * {@link javax.xml.bind.annotation.XmlValue} 
  * that indicates that results of the annotated "getter" method
  * (which means signature must be that of getters; non-void return
  * type, no args) is to be used as the single value to serialize
@@ -40,7 +41,6 @@ public @interface JsonValue
      * with "mix-in annotations" (aka "annotation overrides").
      * For most cases, however, default value of "true" is just fine
      * and should be omitted.
-      * @return Undocumented
      */
     boolean value() default true;
 }

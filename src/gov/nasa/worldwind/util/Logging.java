@@ -12,15 +12,16 @@ import java.text.MessageFormat;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.*;
+
 /**
  * This class of static methods provides the interface to logging for WorldWind components. Logging is performed via
- * {@link java.util.logging.Logger}. The default logger name is <code>gov.nasa.worldwind</code>. The logger name is
+ * {@link java.util.logging}. The default logger name is <code>gov.nasa.worldwind</code>. The logger name is
  * configurable via {@link gov.nasa.worldwind.Configuration}.
  *
  * @author tag
  * @version $Id: Logging.java 1171 2013-02-11 21:45:02Z dcollins $
  * @see gov.nasa.worldwind.Configuration
- * @see java.util.logging.Logger
+ * @see java.util.logging
  */
 public class Logging
 {
@@ -54,7 +55,7 @@ public class Logging
     /**
      * Returns a specific logger. Does not access {@link gov.nasa.worldwind.Configuration} to determine the configured
      * WorldWind logger.
-     * <p>
+     * <p/>
      * This is needed by {@link gov.nasa.worldwind.Configuration} to avoid calls back into itself when its singleton
      * instance is not yet instantiated.
      *

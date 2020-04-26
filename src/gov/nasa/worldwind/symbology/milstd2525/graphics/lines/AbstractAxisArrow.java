@@ -160,6 +160,7 @@ public abstract class AbstractAxisArrow extends AbstractMilStd2525TacticalGraphi
      * default. However, some applications may prefer to specify the width of the route rather than the width of the
      * arrowhead. In the diagram below, the default behavior is for the final control point to specify point A. When
      * {@code finalPointWidthOfRoute} is true the final control point specifies point B instead.
+     * <p/>
      * <pre>
      *                 A
      *                 |\
@@ -222,7 +223,7 @@ public abstract class AbstractAxisArrow extends AbstractMilStd2525TacticalGraphi
 
     /**
      * Create positions that make up the arrow head.
-     * <p>
+     * <p/>
      * The arrow head is defined by the first two control points, and the last point. Pt. 1' is the point on the center
      * line at the base of the arrow head, and Pt. N' is the reflection of Pt. N about the center line.
      * <pre>
@@ -417,8 +418,9 @@ public abstract class AbstractAxisArrow extends AbstractMilStd2525TacticalGraphi
     protected Path createPath()
     {
         Path path = new Path();
-        path.setSurfacePath(true);
+        path.setFollowTerrain(true);
         path.setPathType(AVKey.GREAT_CIRCLE);
+        path.setAltitudeMode(WorldWind.CLAMP_TO_GROUND);
         path.setDelegateOwner(this.getActiveDelegateOwner());
         path.setAttributes(this.getActiveShapeAttributes());
         return path;

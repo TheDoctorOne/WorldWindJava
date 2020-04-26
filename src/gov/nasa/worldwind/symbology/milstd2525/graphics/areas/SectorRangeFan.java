@@ -719,7 +719,7 @@ public class SectorRangeFan extends AbstractMilStd2525TacticalGraphic implements
      * Create positions to draw an arc around the graphic's center position. The arc is described by a radius, left
      * azimuth, and right azimuth. The arc positions are added onto an existing list of positions, in left to right
      * order (the arc draws from the left azimuth to the right azimuth).
-     * <p>
+     * <p/>
      * If the left and right azimuths are equal, then this methods adds a single position to the list at the desired
      * azimuth and radius.
      *
@@ -1059,8 +1059,9 @@ public class SectorRangeFan extends AbstractMilStd2525TacticalGraphic implements
     protected Path createPath(List<Position> positions)
     {
         Path path = new Path(positions);
-        path.setSurfacePath(true);
+        path.setFollowTerrain(true);
         path.setPathType(AVKey.GREAT_CIRCLE);
+        path.setAltitudeMode(WorldWind.CLAMP_TO_GROUND);
         path.setDelegateOwner(this.getActiveDelegateOwner());
         path.setAttributes(this.getActiveShapeAttributes());
         return path;

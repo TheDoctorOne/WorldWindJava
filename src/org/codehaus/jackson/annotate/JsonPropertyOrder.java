@@ -33,7 +33,6 @@ public @interface JsonPropertyOrder
 {
     /**
      * Order in which properties of annotated object are to be serialized in.
-     * @return Undocumented
      */
     public String[] value() default { };
 
@@ -42,7 +41,6 @@ public @interface JsonPropertyOrder
      * not explicitly included in annotation instance. If set to true,
      * they will be alphabetically ordered; if false, order is
      * undefined (default setting)
-     * @return Undocumented
      */
     public boolean alphabetic() default false;
 }

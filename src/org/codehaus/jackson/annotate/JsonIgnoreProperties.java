@@ -30,7 +30,6 @@ public @interface JsonIgnoreProperties
 {
     /**
      * Names of properties to ignore.
-     * @return Undocumented
      */
     public String[] value() default { };
 
@@ -44,7 +43,6 @@ public @interface JsonIgnoreProperties
      * exception.
      *<p>
      * Does not have any effect on serialization.
-     * @return Undocumented
      */
     public boolean ignoreUnknown() default false;
 }

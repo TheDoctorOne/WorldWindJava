@@ -13,7 +13,7 @@ import java.nio.ByteBuffer;
 /**
  * Represents a Shapefile record with a multi point shape type.  Multi-point shapes represent a set of x,y coordinate
  * pairs.
- * <p>
+ * <p/>
  * Multi-points may have optional z-coordinates or m-coordinates that accompany each x,y coordinate pair. If a
  * Multi-point has z-coordinates, then <code>{@link #getZValues()}</code> returns a non-<code>null</code> array of
  * values.  If a Multi-point has m-coordinates, then <code>{@link #getMValues()}</code> returns a non-<code>null</code>
@@ -30,17 +30,7 @@ public class ShapefileRecordMultiPoint extends ShapefileRecord
     protected double[] mRange; // will be null if no measures
     protected double[] mValues; // will be null if no measures
 
-    /**
-     * Constructs a record instance from the given {@link java.nio.ByteBuffer}. The buffer's current position must be
-     * the start of the record, and will be the start of the next record when the constructor returns.
-     *
-     * @param shapeFile the parent {@link Shapefile}.
-     * @param buffer    the shapefile record {@link java.nio.ByteBuffer} to read from.
-     *
-     * @throws IllegalArgumentException if any argument is null or otherwise invalid.
-     * @throws gov.nasa.worldwind.exception.WWRuntimeException
-     *                                  if the record's shape type does not match that of the shapefile.
-     */
+    /** {@inheritDoc} */
     public ShapefileRecordMultiPoint(Shapefile shapeFile, ByteBuffer buffer)
     {
         super(shapeFile, buffer);

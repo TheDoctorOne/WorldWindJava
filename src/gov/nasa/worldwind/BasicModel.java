@@ -102,7 +102,6 @@ public class BasicModel extends WWObjectImpl implements Model
      *
      * @deprecated Use {@link #createLayersFromElement(org.w3c.dom.Element)} instead.
      */
-    @Deprecated
     protected LayerList createLayersFromProperties(String layerNames)
     {
         LayerList layers = new LayerList();
@@ -245,7 +244,7 @@ public class BasicModel extends WWObjectImpl implements Model
 
     /**
      * {@inheritDoc}
-     * <p>
+     * <p/>
      * This implementation forwards the message each layer in the model.
      *
      * @param msg The message that was received.

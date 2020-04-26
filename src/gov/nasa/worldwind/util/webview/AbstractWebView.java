@@ -19,9 +19,7 @@ import java.beans.PropertyChangeEvent;
  *
  * @author pabercrombie
  * @version $Id: AbstractWebView.java 1171 2013-02-11 21:45:02Z dcollins $
- * @deprecated 
  */
-@Deprecated
 public abstract class AbstractWebView extends WWObjectImpl implements WebView, Disposable
 {
     /** The size of the WebView frame in pixels. Initially null, indicating the default size is used. */
@@ -30,6 +28,17 @@ public abstract class AbstractWebView extends WWObjectImpl implements WebView, D
     protected WWTexture textureRep;
     /** Indicates whether the WebView is active. */
     protected boolean active;
+
+    /**
+     * Overridden to ensure that the WebView's native resources are disposed when the WebView is reclaimed by the
+     * garbage collector. This does nothing if the WebView's owner has already called {@link #dispose()}.
+     */
+    @Override
+    protected void finalize() throws Throwable
+    {
+        this.dispose();
+        super.finalize();
+    }
 
     /** {@inheritDoc} */
     public Dimension getFrameSize()

@@ -57,7 +57,7 @@ public class Dummy extends AbstractMilStd2525TacticalGraphic
 
     /**
      * {@inheritDoc}
-     * <p>
+     * <p/>
      * The dummy graphic requires exactly three control points. Any positions beyond the first three will be ignored.
      *
      * @throws IllegalArgumentException if less than three control points are provided.
@@ -113,8 +113,9 @@ public class Dummy extends AbstractMilStd2525TacticalGraphic
     protected Path createPath()
     {
         Path path = new Path();
-        path.setSurfacePath(true);
+        path.setFollowTerrain(true);
         path.setPathType(AVKey.GREAT_CIRCLE);
+        path.setAltitudeMode(WorldWind.CLAMP_TO_GROUND);
         path.setDelegateOwner(this.getActiveDelegateOwner());
         return path;
     }

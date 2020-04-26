@@ -31,12 +31,12 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Computes and displays line-of-sight intersections for terrain and renderables. Uses a {@link Terrain} object in order
  * to determine accurate intersections relative to the highest-resolution elevation data associated with a specified
  * globe.
- * <p>
+ * <p/>
  * This class uses a {@link gov.nasa.worldwindx.examples.lineofsight.TerrainLineIntersector} and a {@link
  * gov.nasa.worldwindx.examples.lineofsight.ShapeLineIntersector} to compute the intersections.
- * <p>
- * <em>Usage:</em> <br> Shift-click: Calculate lines of sight for a position. <br> Ctrl-click: Cancel the running
- * computation. <br> Alt-click: Re-run the most recent line of sight calculation.
+ * <p/>
+ * <em>Usage:</em> <br/> Shift-click: Calculate lines of sight for a position. <br/> Ctrl-click: Cancel the running
+ * computation. <br/> Alt-click: Re-run the most recent line of sight calculation.
  *
  * @author tag
  * @version $Id: LinesOfSight.java 2109 2014-06-30 16:52:38Z tgaskins $
@@ -133,7 +133,7 @@ public class LinesOfSight extends ApplicationTemplate
                 public void mouseClicked(MouseEvent mouseEvent)
                 {
                     // Control-Click cancels any currently running operation.
-                    if ((mouseEvent.getModifiersEx() & InputEvent.CTRL_DOWN_MASK) != 0)
+                    if ((mouseEvent.getModifiers() & ActionEvent.CTRL_MASK) != 0)
                     {
                         if (calculationDispatchThread != null && calculationDispatchThread.isAlive())
                             calculationDispatchThread.interrupt();
@@ -141,7 +141,7 @@ public class LinesOfSight extends ApplicationTemplate
                     }
 
                     // Alt-Click repeats the most recent calculations.
-                    if ((mouseEvent.getModifiersEx() & InputEvent.ALT_DOWN_MASK) != 0)
+                    if ((mouseEvent.getModifiers() & ActionEvent.ALT_MASK) != 0)
                     {
                         if (previousCurrentPosition == null)
                             return;
@@ -153,7 +153,7 @@ public class LinesOfSight extends ApplicationTemplate
                     }
 
                     // Perform the intersection tests in response to Shift-Click.
-                    if ((mouseEvent.getModifiersEx() & InputEvent.SHIFT_DOWN_MASK) == 0)
+                    if ((mouseEvent.getModifiers() & ActionEvent.SHIFT_MASK) == 0)
                         return;
 
                     mouseEvent.consume(); // tell the rest of WW that this event has been processed

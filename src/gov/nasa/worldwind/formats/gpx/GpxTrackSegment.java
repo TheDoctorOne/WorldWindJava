@@ -31,12 +31,12 @@ public class GpxTrackSegment extends gov.nasa.worldwind.formats.gpx.ElementParse
     }
 
     /**
-     * @param uri The element URI.
-     * @param lname the element lname.
-     * @param qname the element qname.
-     * @param attributes The element attributes.
+     * @param uri
+     * @param lname
+     * @param qname
+     * @param attributes
      * @throws IllegalArgumentException if any parameter is null
-     * @throws org.xml.sax.SAXException if a parsing error occurs.
+     * @throws org.xml.sax.SAXException
      */
     @Override
     public void doStartElement(String uri, String lname, String qname, org.xml.sax.Attributes attributes)

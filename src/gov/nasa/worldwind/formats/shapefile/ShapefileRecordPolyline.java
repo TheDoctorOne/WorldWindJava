@@ -17,7 +17,7 @@ import java.util.Locale;
  * Represents a Shapefile record with a polyline shape type. Polyline shapes represent an connected sequence of two or
  * more x,y coordinate pairs. Polyline shapes may contain multiple parts, where each part is an independent connected
  * sequence of two or more points.
- * <p>
+ * <p/>
  * Polylines may have optional z-coordinates or m-coordinates that accompany each coordinate pair. If a Polyline has
  * z-coordinates, then <code>{@link #getZValues()}</code> returns a non-<code>null</code> array of values.  If a
  * Polyline has m-coordinates, then <code>{@link #getMValues()}</code> returns a non-<code>null</code> array of values.
@@ -33,17 +33,7 @@ public class ShapefileRecordPolyline extends ShapefileRecord
     protected double[] mRange; // will be null if no measures
     protected double[] mValues; // will be null if no measures
 
-    /**
-     * Constructs a record instance from the given {@link java.nio.ByteBuffer}. The buffer's current position must be
-     * the start of the record, and will be the start of the next record when the constructor returns.
-     *
-     * @param shapeFile the parent {@link Shapefile}.
-     * @param buffer    the shapefile record {@link java.nio.ByteBuffer} to read from.
-     *
-     * @throws IllegalArgumentException if any argument is null or otherwise invalid.
-     * @throws gov.nasa.worldwind.exception.WWRuntimeException
-     *                                  if the record's shape type does not match that of the shapefile.
-     */
+    /** {@inheritDoc} */
     public ShapefileRecordPolyline(Shapefile shapeFile, ByteBuffer buffer)
     {
         super(shapeFile, buffer);

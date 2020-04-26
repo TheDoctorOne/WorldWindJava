@@ -108,7 +108,6 @@ public abstract class JsonGenerator
         /**
          * Method that calculates bit set (flags) of all features that
          * are enabled by default.
-         * @return  Undocumented.
          */
         public static int collectDefaults()
         {
@@ -153,7 +152,6 @@ public abstract class JsonGenerator
      * Method for enabling specified parser features:
      * check {@link Feature} for list of available features.
      *
-     * @param f Undocumented.
      * @return Generator itself (this), to allow chaining
      *
      * @since 1.2
@@ -164,7 +162,6 @@ public abstract class JsonGenerator
      * Method for disabling specified  features
      * (check {@link Feature} for list of features)
      *
-     * @param f Undocumented.
      * @return Generator itself (this), to allow chaining
      *
      * @since 1.2
@@ -175,8 +172,6 @@ public abstract class JsonGenerator
      * Method for enabling or disabling specified feature:
      * check {@link Feature} for list of available features.
      *
-     * @param f Undocumented.
-     * @param state Undocumented.
      * @return Generator itself (this), to allow chaining
      *
      * @since 1.2
@@ -192,10 +187,9 @@ public abstract class JsonGenerator
     }
 
     /**
-     * Method for checking whether given feature is enabled.Check {@link Feature} for list of available features.
+     * Method for checking whether given feature is enabled.
+     * Check {@link Feature} for list of available features.
      *
-     * @param f Undocumented.
-     * @return  Undocumented.
      * @since 1.2
      */
     public abstract boolean isEnabled(Feature f);
@@ -205,7 +199,6 @@ public abstract class JsonGenerator
      * use for writing Java objects as JsonContent
      * (using method {@link #writeObject}).
      *
-     * @param oc Undocumented.
      * @return Generator itself (this), to allow chaining
      */
     public abstract JsonGenerator setCodec(ObjectCodec oc);
@@ -214,40 +207,25 @@ public abstract class JsonGenerator
      * Method for accessing the object used for writing Java
      * object as Json content
      * (using method {@link #writeObject}).
-     * @return Undocumented. 
      */
     public abstract ObjectCodec getCodec();
 
     // // // Older deprecated versions
 
-    /**
-     *  @deprecated Use {@link #enable} instead
-     * @param f Undocumented.
+    /** @deprecated Use {@link #enable} instead
      */
-    @Deprecated
     public void enableFeature(Feature f) { enable(f); }
 
-    /**
-     *  @deprecated Use {@link #disable} instead
-     * @param f Undocumented.
+    /** @deprecated Use {@link #disable} instead
      */
-    @Deprecated
     public void disableFeature(Feature f) { disable(f); }
 
-    /**
-     * @deprecated Use {@link #configure} instead
-     * @param f Undocumented.
-     * @param state Undocumented.
+    /** @deprecated Use {@link #configure} instead
      */
-    @Deprecated
     public void setFeature(Feature f, boolean state) { configure(f, state); }
 
-    /**
-     * @param f Undocumented.
-     * @return  Undocumented. 
-     * @deprecated Use {@link #isEnabled} instead
+    /** @deprecated Use {@link #isEnabled} instead
      */
-    @Deprecated
     public boolean isFeatureEnabled(Feature f) { return isEnabled(f); }
 
 
@@ -259,12 +237,13 @@ public abstract class JsonGenerator
 
     /**
      * Method for setting a custom pretty printer, which is usually
-     * used to add indentation for improved human readability.By default, generator does not do pretty printing.<p>
+     * used to add indentation for improved human readability.
+     * By default, generator does not do pretty printing.
+     *<p>
      * To use the default pretty printer that comes with core
      * Jackson distribution, call {@link #useDefaultPrettyPrinter}
      * instead.
      *
-     * @param pp Undocumented.
      * @return Generator itself (this), to allow chaining
      */
     public JsonGenerator setPrettyPrinter(PrettyPrinter pp) {
@@ -295,8 +274,6 @@ public abstract class JsonGenerator
      * Array values can be written in any context where values
      * are allowed: meaning everywhere except for when
      * a field name is expected.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public abstract void writeStartArray()
         throws IOException, JsonGenerationException;
@@ -308,8 +285,6 @@ public abstract class JsonGenerator
      *<p>
      * Marker can be written if the innermost structured type
      * is Array.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public abstract void writeEndArray()
         throws IOException, JsonGenerationException;
@@ -322,8 +297,6 @@ public abstract class JsonGenerator
      * Object values can be written in any context where values
      * are allowed: meaning everywhere except for when
      * a field name is expected.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public abstract void writeStartObject()
         throws IOException, JsonGenerationException;
@@ -337,8 +310,6 @@ public abstract class JsonGenerator
      * is Object, and the last written event was either a
      * complete value, or START-OBJECT marker (see Json specification
      * for more details).
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public abstract void writeEndObject()
         throws IOException, JsonGenerationException;
@@ -351,9 +322,6 @@ public abstract class JsonGenerator
      * Field names can only be written in Object context (check out
      * Json specification for details), when field name is expected
      * (field names alternate with values).
-     * @param name Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public abstract void writeFieldName(String name)
         throws IOException, JsonGenerationException;
@@ -365,13 +333,11 @@ public abstract class JsonGenerator
      */
 
     /**
-     * Method for outputting a String value.Depending on context this means either array element, (object) field value
-     * or a stand alone String; but in all cases, String will be surrounded in double quotes, and contents will be
-     * properly escaped as required by Json specification.
-     *
-     * @param text Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
+     * Method for outputting a String value. Depending on context
+     * this means either array element, (object) field value or
+     * a stand alone String; but in all cases, String will be
+     * surrounded in double quotes, and contents will be properly
+     * escaped as required by Json specification.
      */
     public abstract void writeString(String text)
         throws IOException, JsonGenerationException;
@@ -383,11 +349,9 @@ public abstract class JsonGenerator
      * Fallback method which can be used to make generator copy
      * input text verbatim with <b>no</b> modifications (including
      * that no quoting is done and no separators are added even
-     * if context [array, object] would otherwise require such).If such separators are desired, use
-    {@link #writeRawValue(String)} instead.
-     * @param text Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
+     * if context [array, object] would otherwise require such).
+     * If such separators are desired, use
+     * {@link #writeRawValue(String)} instead.
      */
     public abstract void writeRaw(String text)
         throws IOException, JsonGenerationException;
@@ -402,13 +366,12 @@ public abstract class JsonGenerator
         throws IOException, JsonGenerationException;
 
     /**
-     * Fallback method which can be used to make generator copy input text verbatim without any modifications, but
-     * assuming it must constitute a single legal Json value (number, string, boolean, null, Array or List).Assuming
-     * this, proper separators are added if and as needed (comma or colon), and generator state updated to reflect this.
-     *
-     * @param text Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
+     * Fallback method which can be used to make generator copy
+     * input text verbatim without any modifications, but assuming
+     * it must constitute a single legal Json value (number, string,
+     * boolean, null, Array or List). Assuming this, proper separators
+     * are added if and as needed (comma or colon), and generator
+     * state updated to reflect this.
      */
     public abstract void writeRawValue(String text)
         throws IOException, JsonGenerationException;
@@ -421,7 +384,9 @@ public abstract class JsonGenerator
 
     /**
      * Method that will output given chunk of binary data as base64
-     * encoded, as a complete String value (surrounded by double quotes).This method defaults<p>
+     * encoded, as a complete String value (surrounded by double quotes).
+     * This method defaults
+     *<p>
      * Note: because Json Strings can not contain unescaped linefeeds,
      * if linefeeds are included (as per last argument), they must be
      * escaped. This adds overhead for decoding without improving
@@ -437,11 +402,6 @@ public abstract class JsonGenerator
      *   whether padding is used (and if so, using which character);
      *   what is the maximum line length before adding linefeed,
      *   and also the underlying alphabet to use.
-     * @param data Undocumented.
-     * @param offset Undocumented.
-     * @param len Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public abstract void writeBinary(Base64Variant b64variant,
                                      byte[] data, int offset, int len)
@@ -451,11 +411,6 @@ public abstract class JsonGenerator
      * Similar to {@link #writeBinary(Base64Variant,byte[],int,int)},
      * but default to using the Jackson default Base64 variant 
      * (which is {@link Base64Variants#MIME_NO_LINEFEEDS}).
-     * @param data Undocumented.
-     * @param offset Undocumented.
-     * @param len Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public void writeBinary(byte[] data, int offset, int len)
         throws IOException, JsonGenerationException
@@ -464,13 +419,10 @@ public abstract class JsonGenerator
     }
 
     /**
-     * Similar to {@link #writeBinary(Base64Variant,byte[],int,int)}, but assumes default to using the Jackson default
-     * Base64 variant (which is {@link Base64Variants#MIME_NO_LINEFEEDS}).Also assumes that whole byte array is to be
-     * output.
-     *
-     * @param data Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
+     * Similar to {@link #writeBinary(Base64Variant,byte[],int,int)},
+     * but assumes default to using the Jackson default Base64 variant 
+     * (which is {@link Base64Variants#MIME_NO_LINEFEEDS}). Also
+     * assumes that whole byte array is to be output.
      */
     public void writeBinary(byte[] data)
         throws IOException, JsonGenerationException
@@ -485,12 +437,11 @@ public abstract class JsonGenerator
      */
 
     /**
-     * Method for outputting given value as Json number.Can be called in any context where a value is expected
- (Array value, Object field value, root-level value).Additional white space may be added around the value
- if pretty-printing is enabled.
-     * @param v Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
+     * Method for outputting given value as Json number.
+     * Can be called in any context where a value is expected
+     * (Array value, Object field value, root-level value).
+     * Additional white space may be added around the value
+     * if pretty-printing is enabled.
      */
     public abstract void writeNumber(int v)
         throws IOException, JsonGenerationException;
@@ -501,9 +452,6 @@ public abstract class JsonGenerator
      * (Array value, Object field value, root-level value).
      * Additional white space may be added around the value
      * if pretty-printing is enabled.
-     * @param v Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public abstract void writeNumber(long v)
         throws IOException, JsonGenerationException;
@@ -514,10 +462,7 @@ public abstract class JsonGenerator
      * (Array value, Object field value, root-level value).
      * Additional white space may be added around the value
      * if pretty-printing is enabled.
-        * @param v Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
-  */
+     */
     public abstract void writeNumber(BigInteger v)
         throws IOException, JsonGenerationException;
 
@@ -527,9 +472,6 @@ public abstract class JsonGenerator
      * (Array value, Object field value, root-level value).
      * Additional white space may be added around the value
      * if pretty-printing is enabled.
-     * @param d Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public abstract void writeNumber(double d)
         throws IOException, JsonGenerationException;
@@ -540,9 +482,6 @@ public abstract class JsonGenerator
      * (Array value, Object field value, root-level value).
      * Additional white space may be added around the value
      * if pretty-printing is enabled.
-     * @param f Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public abstract void writeNumber(float f)
         throws IOException, JsonGenerationException;
@@ -553,26 +492,25 @@ public abstract class JsonGenerator
      * (Array value, Object field value, root-level value).
      * Additional white space may be added around the value
      * if pretty-printing is enabled.
-     * @param dec Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public abstract void writeNumber(BigDecimal dec)
         throws IOException, JsonGenerationException;
 
     /**
-     * Write method that can be used for custom numeric types that can not be (easily?) converted to "standard" Java
-     * number types.Because numbers are not surrounded by double quotes, regular {@link #writeString} method can not be
-     * used; nor {@link #writeRaw} because that does not properly handle value separators needed in Array or Object
-     * contexts.<p>
-     * Note: because of lack of type safety, some generator implementations may not be able to implement this method.
-     * For example, if a binary json format is used, it may require type information for encoding; similarly for
-     * generator-wrappers around Java objects or Json nodes. If implementation does not implement this method, it needs
-     * to throw {@link UnsupportedOperationException}.
-     *
-     * @param encodedValue Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
+     * Write method that can be used for custom numeric types that can
+     * not be (easily?) converted to "standard" Java number types.
+     * Because numbers are not surrounded by double quotes, regular
+     * {@link #writeString} method can not be used; nor
+     * {@link #writeRaw} because that does not properly handle
+     * value separators needed in Array or Object contexts.
+     *<p>
+     * Note: because of lack of type safety, some generator
+     * implementations may not be able to implement this
+     * method. For example, if a binary json format is used,
+     * it may require type information for encoding; similarly
+     * for generator-wrappers around Java objects or Json nodes.
+     * If implementation does not implement this method,
+     * it needs to throw {@link UnsupportedOperationException}.
      */
     public abstract void writeNumber(String encodedValue)
         throws IOException, JsonGenerationException,
@@ -585,9 +523,6 @@ public abstract class JsonGenerator
      * (Array value, Object field value, root-level value).
      * Additional white space may be added around the value
      * if pretty-printing is enabled.
-     * @param state Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public abstract void writeBoolean(boolean state)
         throws IOException, JsonGenerationException;
@@ -598,8 +533,6 @@ public abstract class JsonGenerator
      * (Array value, Object field value, root-level value).
      * Additional white space may be added around the value
      * if pretty-printing is enabled.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public abstract void writeNull()
         throws IOException, JsonGenerationException;
@@ -620,9 +553,6 @@ public abstract class JsonGenerator
      * <b>NOTE</b>: generator must have its <b>object codec</b>
      * set to non-null value; for generators created by a mapping
      * factory this is the case, for others not.
-     * @param pojo Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public abstract void writeObject(Object pojo)
         throws IOException, JsonProcessingException;
@@ -634,9 +564,6 @@ public abstract class JsonGenerator
      * {@link #writeObject} with given node, but is added
      * for convenience and to make code more explicit in cases
      * where it deals specifically with trees.
-     * @param rootNode Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public abstract void writeTree(JsonNode rootNode)
         throws IOException, JsonProcessingException;
@@ -649,14 +576,11 @@ public abstract class JsonGenerator
 
     /**
      * Convenience method for outputting a field entry ("member")
-     * that has a String value.Equivalent to:<pre>
+     * that has a String value. Equivalent to:
+     *<pre>
      *  writeFieldName(fieldName);
      *  writeString(value);
      *</pre>
-     * @param fieldName Undocumented.
-     * @param value Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public final void writeStringField(String fieldName, String value)
         throws IOException, JsonGenerationException
@@ -667,14 +591,11 @@ public abstract class JsonGenerator
 
     /**
      * Convenience method for outputting a field entry ("member")
-     * that has a boolean value.Equivalent to:<pre>
+     * that has a boolean value. Equivalent to:
+     *<pre>
      *  writeFieldName(fieldName);
      *  writeBoolean(value);
      *</pre>
-     * @param fieldName Undocumented.
-     * @param value Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public final void writeBooleanField(String fieldName, boolean value)
         throws IOException, JsonGenerationException
@@ -685,13 +606,11 @@ public abstract class JsonGenerator
 
     /**
      * Convenience method for outputting a field entry ("member")
-     * that has Json literal value null.Equivalent to:<pre>
+     * that has Json literal value null. Equivalent to:
+     *<pre>
      *  writeFieldName(fieldName);
      *  writeNull();
      *</pre>
-     * @param fieldName Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public final void writeNullField(String fieldName)
         throws IOException, JsonGenerationException
@@ -702,14 +621,11 @@ public abstract class JsonGenerator
 
     /**
      * Convenience method for outputting a field entry ("member")
-     * that has the specified numeric value.Equivalent to:<pre>
+     * that has the specified numeric value. Equivalent to:
+     *<pre>
      *  writeFieldName(fieldName);
      *  writeNumber(value);
      *</pre>
-     * @param fieldName Undocumented.
-     * @param value Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public final void writeNumberField(String fieldName, int value)
         throws IOException, JsonGenerationException
@@ -720,14 +636,11 @@ public abstract class JsonGenerator
 
     /**
      * Convenience method for outputting a field entry ("member")
-     * that has the specified numeric value.Equivalent to:<pre>
+     * that has the specified numeric value. Equivalent to:
+     *<pre>
      *  writeFieldName(fieldName);
      *  writeNumber(value);
      *</pre>
-     * @param fieldName Undocumented.
-     * @param value Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public final void writeNumberField(String fieldName, long value)
         throws IOException, JsonGenerationException
@@ -738,15 +651,12 @@ public abstract class JsonGenerator
 
     /**
      * Convenience method for outputting a field entry ("member")
-     * that has the specified numeric value.Equivalent to:<pre>
+     * that has the specified numeric value. Equivalent to:
+     *<pre>
      *  writeFieldName(fieldName);
      *  writeNumber(value);
      *</pre>
-     * @param fieldName Undocumented.
-     * @param value Undocumented.
-      * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
-    */
+     */
     public final void writeNumberField(String fieldName, double value)
         throws IOException, JsonGenerationException
     {
@@ -756,14 +666,11 @@ public abstract class JsonGenerator
 
     /**
      * Convenience method for outputting a field entry ("member")
-     * that has the specified numeric value.Equivalent to:<pre>
+     * that has the specified numeric value. Equivalent to:
+     *<pre>
      *  writeFieldName(fieldName);
      *  writeNumber(value);
      *</pre>
-     * @param fieldName Undocumented.
-     * @param value Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public final void writeNumberField(String fieldName, float value)
         throws IOException, JsonGenerationException
@@ -774,14 +681,12 @@ public abstract class JsonGenerator
 
     /**
      * Convenience method for outputting a field entry ("member")
-     * that has the specified numeric value.Equivalent to:<pre>
+     * that has the specified numeric value.
+     * Equivalent to:
+     *<pre>
      *  writeFieldName(fieldName);
      *  writeNumber(value);
      *</pre>
-     * @param fieldName Undocumented.
-     * @param value Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public final void writeNumberField(String fieldName, BigDecimal value)
         throws IOException, JsonGenerationException
@@ -792,14 +697,12 @@ public abstract class JsonGenerator
 
     /**
      * Convenience method for outputting a field entry ("member")
-     * that contains specified data in base64-encoded form.Equivalent to:<pre>
+     * that contains specified data in base64-encoded form.
+     * Equivalent to:
+     *<pre>
      *  writeFieldName(fieldName);
      *  writeBinary(value);
      *</pre>
-     * @param fieldName Undocumented.
-     * @param data Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public final void writeBinaryField(String fieldName, byte[] data)
         throws IOException, JsonGenerationException
@@ -810,7 +713,9 @@ public abstract class JsonGenerator
 
     /**
      * Convenience method for outputting a field entry ("member")
-     * (that will contain a Json Array value), and the START_ARRAY marker.Equivalent to:<pre>
+     * (that will contain a Json Array value), and the START_ARRAY marker.
+     * Equivalent to:
+     *<pre>
      *  writeFieldName(fieldName);
      *  writeStartArray();
      *</pre>
@@ -818,9 +723,6 @@ public abstract class JsonGenerator
      * Note: caller still has to take care to close the array
      * (by calling {#link #writeEndArray}) after writing all values
      * of the value Array.
-     * @param fieldName Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public final void writeArrayFieldStart(String fieldName)
         throws IOException, JsonGenerationException
@@ -831,7 +733,9 @@ public abstract class JsonGenerator
 
     /**
      * Convenience method for outputting a field entry ("member")
-     * (that will contain a Json Object value), and the START_OBJECT marker.Equivalent to:<pre>
+     * (that will contain a Json Object value), and the START_OBJECT marker.
+     * Equivalent to:
+     *<pre>
      *  writeFieldName(fieldName);
      *  writeStartObject();
      *</pre>
@@ -839,9 +743,6 @@ public abstract class JsonGenerator
      * Note: caller still has to take care to close the Object
      * (by calling {#link #writeEndObject}) after writing all
      * entries of the value Object.
-     * @param fieldName Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public final void writeObjectFieldStart(String fieldName)
         throws IOException, JsonGenerationException
@@ -852,14 +753,12 @@ public abstract class JsonGenerator
 
     /**
      * Convenience method for outputting a field entry ("member")
-     * that has contents of specific Java object as its value.Equivalent to:<pre>
+     * that has contents of specific Java object as its value.
+     * Equivalent to:
+     *<pre>
      *  writeFieldName(fieldName);
      *  writeObject(pojo);
      *</pre>
-     * @param fieldName Undocumented.
-     * @param pojo Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public final void writeObjectField(String fieldName, Object pojo)
         throws IOException, JsonProcessingException
@@ -876,14 +775,13 @@ public abstract class JsonGenerator
 
     /**
      * Method for copying contents of the current event that
-     * the given parser instance points to.Note that the method <b>will not</b> copy any other events,
- such as events contained within Json Array or Object structures.<p>
+     * the given parser instance points to.
+     * Note that the method <b>will not</b> copy any other events,
+     * such as events contained within Json Array or Object structures.
+     *<p>
      * Calling this method will not advance the given
      * parser, although it may cause parser to internally process
      * more data (if it lazy loads contents of value events, for example)
-     * @param jp Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public abstract void copyCurrentEvent(JsonParser jp)
         throws IOException, JsonProcessingException;
@@ -917,9 +815,6 @@ public abstract class JsonGenerator
      * <b>last event</b> that was copied. This will either be
      * the event parser already pointed to (if there were no
      * enclosed events), or the last enclosed event copied.
-     * @param jp Undocumented.
-     * @throws java.io.IOException Undocumented.
-     * @throws org.codehaus.jackson.JsonGenerationException Undocumented.
      */
     public abstract void copyCurrentStructure(JsonParser jp)
         throws IOException, JsonProcessingException;
@@ -946,15 +841,13 @@ public abstract class JsonGenerator
      * Method called to flush any buffered content to the underlying
      * target (output stream, writer), and to flush the target itself
      * as well.
-     * @throws java.io.IOException Undocumented.
      */
     public abstract void flush()
         throws IOException;
 
     /**
      * Method that can be called to determine whether this generator
-     * is closed or not.If it is closed, no more output can be done.
-     * @return  Undocumented. 
+     * is closed or not. If it is closed, no more output can be done.
      */
     public abstract boolean isClosed();
 
@@ -976,7 +869,6 @@ public abstract class JsonGenerator
      * If either of above is true, the target is also closed. Otherwise
      * (not managing, feature not enabled), target is not closed.
      */
-    @Override
     public abstract void close()
         throws IOException;
 

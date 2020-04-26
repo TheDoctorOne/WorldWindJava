@@ -23,7 +23,6 @@ public @interface JsonTypeName {
     /**
      * Logical type name for annotated type. If missing (or defined as Empty String),
      * defaults to using non-qualified class name as the type.
-      * @return Undocumented
      */
     public String value() default "";
 }

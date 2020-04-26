@@ -21,6 +21,10 @@ import java.lang.annotation.Target;
  *  \@JsonTypeInfo(use=Id.NAME, include=As.WRAPPER_OBJECT)
  *  \@JsonSubTypes({com.myemp.Impl1.class, com.myempl.Impl2.class})
  *</pre>
+ * Alternatively you can also define fully customized type handling by using
+ * {@link org.codehaus.jackson.map.annotate.JsonTypeResolver} annotation.
+ * 
+ * @see org.codehaus.jackson.map.annotate.JsonTypeResolver
  * @since 1.5
  * 
  * @author tatu
@@ -45,6 +49,9 @@ public @interface JsonTypeInfo
          * This means that no explicit type metadata is included, and typing is
          * purely done using contextual information possibly augmented with other
          * annotations.
+         *<p>
+         * Note: no {@link org.codehaus.jackson.map.jsontype.TypeIdResolver}
+         * is constructed if this value is used.
          */
         NONE(null),
 
@@ -143,8 +150,7 @@ public @interface JsonTypeInfo
      * What kind of type metadata is to be used for serializing and deserializing
      * type information for instances of annotated type (and its subtypes
      * unless overridden)
-      * @return Undocumented
-    */
+     */
     public Id use();    
     
     /**
@@ -153,7 +159,6 @@ public @interface JsonTypeInfo
      *<p>
      * Note that for type metadata type of {@link Id#CUSTOM},
      * this setting may or may not have any effect.
-     * @return Undocumented
      */
     public As include() default As.PROPERTY;
 
@@ -164,7 +169,6 @@ public @interface JsonTypeInfo
      * Default property name used if this property is not explicitly defined
      * (or is set to empty String) is based on
      * type metadata type ({@link #use}) used.
-     * @return Undocumented
      */
     public String property() default "";
 }

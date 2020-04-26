@@ -20,7 +20,7 @@ import java.util.*;
  * more x,y coordinate pairs that form a closed loop. Polygon shapes may contain multiple rings, where each ring is a
  * closed loop of four or more points. Rings defining a filled part of a polygon have a clockwise winding order, while
  * rings defining holes in the polygon have a counter-clockwise winding order.
- * <p>
+ * <p/>
  * Polygons may have optional z-coordinates or m-coordinates that accompany each coordinate pair. If a Polygon has
  * z-coordinates, then <code>{@link #getZValues()}</code> returns a non-<code>null</code> array of values.  If a Polygon
  * has m-coordinates, then <code>{@link #getMValues()}</code> returns a non-<code>null</code> array of values.
@@ -30,17 +30,7 @@ import java.util.*;
  */
 public class ShapefileRecordPolygon extends ShapefileRecordPolyline
 {
-    /**
-     * Constructs a record instance from the given {@link java.nio.ByteBuffer}. The buffer's current position must be
-     * the start of the record, and will be the start of the next record when the constructor returns.
-     *
-     * @param shapeFile the parent {@link Shapefile}.
-     * @param buffer    the shapefile record {@link java.nio.ByteBuffer} to read from.
-     *
-     * @throws IllegalArgumentException if any argument is null or otherwise invalid.
-     * @throws gov.nasa.worldwind.exception.WWRuntimeException
-     *                                  if the record's shape type does not match that of the shapefile.
-     */
+    /** {@inheritDoc} */
     public ShapefileRecordPolygon(Shapefile shapeFile, ByteBuffer buffer)
     {
         super(shapeFile, buffer);

@@ -168,10 +168,8 @@ public final class BytesToNameCanonicalizer
     }
 
     /**
-     * @param canonicalize Whether to canonicalize the string.
      * @param intern Whether canonical symbol Strings should be interned
      *   or not
-     * @return Undocumented.
      */
     public synchronized BytesToNameCanonicalizer makeChild(boolean canonicalize,
         boolean intern)
@@ -311,10 +309,9 @@ public final class BytesToNameCanonicalizer
     public int size() { return _count; }
 
     /**
-     * Method called to check to quickly see if a child symbol table may have gotten additional entries. Used for
-     * checking to see if a child table should be merged into shared table.
-     *
-     * @return Undocumented.
+     * Method called to check to quickly see if a child symbol table
+     * may have gotten additional entries. Used for checking to see
+     * if a child table should be merged into shared table.
      */
     public boolean maybeDirty()
     {

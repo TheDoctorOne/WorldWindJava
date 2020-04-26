@@ -20,6 +20,7 @@ import java.util.*;
 
 /**
  * Direction of Attack graphics. This class implements the following graphics:
+ * <p/>
  * <ul> <li>Direction of Main Attack graphic (2.X.2.5.2.2.2.1)</li> <li>Direction of Supporting Attack graphic
  * (2.X.2.5.2.2.2.2)</li> </ul>
  *
@@ -356,8 +357,9 @@ public class DirectionOfAttack extends AbstractMilStd2525TacticalGraphic
     protected Path createPath(List<Position> positions)
     {
         Path path = new Path(positions);
-        path.setSurfacePath(true);
+        path.setFollowTerrain(true);
         path.setPathType(AVKey.GREAT_CIRCLE);
+        path.setAltitudeMode(WorldWind.CLAMP_TO_GROUND);
         path.setDelegateOwner(this.getActiveDelegateOwner());
         path.setAttributes(this.getActiveShapeAttributes());
         return path;

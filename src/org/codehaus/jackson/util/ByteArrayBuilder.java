@@ -144,7 +144,6 @@ public final class ByteArrayBuilder
     /**
      * Method called when results are finalized and we can get the
      * full aggregated result buffer to return to the caller
-     * @return Undocumented.
      */
     public byte[] toByteArray()
     {

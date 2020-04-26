@@ -404,8 +404,9 @@ public class InfiltrationLane extends AbstractMilStd2525TacticalGraphic
     protected Path createPath(List<Position> positions)
     {
         Path path = new Path(positions);
-        path.setSurfacePath(true);
+        path.setFollowTerrain(true);
         path.setPathType(AVKey.GREAT_CIRCLE);
+        path.setAltitudeMode(WorldWind.CLAMP_TO_GROUND);
         path.setDelegateOwner(this.getActiveDelegateOwner());
         path.setAttributes(this.getActiveShapeAttributes());
         return path;

@@ -588,8 +588,9 @@ public class Route extends AbstractMilStd2525TacticalGraphic implements Tactical
     protected Path createPath(Position start, Position end)
     {
         Path path = new Path(start, end);
-        path.setSurfacePath(true);
+        path.setFollowTerrain(true);
         path.setPathType(AVKey.GREAT_CIRCLE);
+        path.setAltitudeMode(WorldWind.CLAMP_TO_GROUND);
         path.setDelegateOwner(this.getActiveDelegateOwner());
         path.setAttributes(this.getActiveShapeAttributes());
         return path;

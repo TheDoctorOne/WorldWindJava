@@ -6,7 +6,6 @@
 package gov.nasa.worldwindx.examples;
 
 import java.awt.*;
-import java.lang.reflect.InvocationTargetException;
 
 /**
  * Example of integrating a gazetteer search function using the {@link gov.nasa.worldwind.poi.YahooGazetteer}.
@@ -20,7 +19,7 @@ public class GazetteerApp extends ApplicationTemplate
 {
     public static class AppFrame extends ApplicationTemplate.AppFrame
     {
-        public AppFrame() throws IllegalAccessException, InstantiationException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException
+        public AppFrame() throws IllegalAccessException, InstantiationException, ClassNotFoundException
         {
             super(true, false, false);
 

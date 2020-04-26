@@ -25,19 +25,17 @@ import java.lang.annotation.Target;
  * {@link JsonContentClass} instead (or for Map keys,
  * {@link JsonKeyClass}).
  *
- * @deprecated
+ * @deprecated As of version 1.1, use {@link org.codehaus.jackson.map.annotate.JsonDeserialize#as} instead
  */
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @JacksonAnnotation
-@Deprecated
 public @interface JsonClass
 {
     /**
      * Class that is the type to use for deserializating value of
      * the property associated
      * with the annotated method.
-     * @return Undocumented
      */
     public Class<?> value();
 }

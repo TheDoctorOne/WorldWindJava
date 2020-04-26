@@ -51,9 +51,9 @@ public class CSVReader implements Track, TrackSegment
     }
 
     /**
-     * @param path File spec to read from.
+     * @param path
      * @throws IllegalArgumentException if <code>path</code> is null
-     * @throws java.io.IOException If there are issues reading from the file.
+     * @throws java.io.IOException
      */
     public void readFile(String path) throws IOException
     {
@@ -79,10 +79,10 @@ public class CSVReader implements Track, TrackSegment
     }
 
     /**
-     * @param stream The stream to read from.
-     * @param name The name of the stream.
+     * @param stream
+     * @param name
      * @throws IllegalArgumentException if <code>stream</code> is null
-     * @throws java.io.IOException If there are issues reading the stream.
+     * @throws java.io.IOException
      */
     public void readStream(InputStream stream, String name) throws IOException
     {

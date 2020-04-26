@@ -21,7 +21,7 @@ import java.util.ArrayList;
 /**
  * Illustrates usage of the per-position color feature of {@link Path}. Path's per-position colors may be assigned in
  * any manner the application chooses. This example illustrates only one way of assigning color to each path position.
- * <p>
+ * <p/>
  * Also illustrates the use of the "show positions" feature of {@link Path}.
  *
  * @author dcollins
@@ -54,7 +54,8 @@ public class PathPositionColors extends ApplicationTemplate
 
             // Create a path with the specified positions that follows the terrain and draws a point at each position.
             Path path = new Path(pathPositions);
-            path.setSurfacePath(true);
+            path.setAltitudeMode(WorldWind.CLAMP_TO_GROUND);
+            path.setFollowTerrain(true);
             path.setShowPositions(true);
             path.setShowPositionsScale(3);
 

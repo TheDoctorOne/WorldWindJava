@@ -39,11 +39,11 @@ import java.util.*;
  * desired shape from a dropdown menu, create an instance of it with the click of a button, and specify an "edit mode"
  * for modifying the shape: move, scale, rotate, skew, or texture.  Numerous shapes may be created and placed on the
  * globe together, but only one may be selected and edited at any given time.
- * <p>
+ * <p/>
  * Keyboard shortcuts allow the user to toggle easily between the various edit modes.  The shortcuts are as follows:
- * <p>
+ * <p/>
  * Ctrl-Z:  move Ctrl-X:  scale Ctrl-C:  rotate Ctrl-V:  skew Ctrl-B:  texture
- * <p>
+ * <p/>
  * Edited shapes are Restorable and may be saved to or loaded from a file using options in the File menu.
  *
  * @author ccrick
@@ -1664,8 +1664,8 @@ public class RigidShapeBuilder extends ApplicationTemplate
                             String[] name = file.getName().split("-");
                             try
                             {
-                                Class<?> c = Class.forName(name[0]);
-                                AbstractShape newShape = (AbstractShape) c.getConstructor().newInstance();
+                                Class c = Class.forName(name[0]);
+                                AbstractShape newShape = (AbstractShape) c.newInstance();
                                 BufferedReader input = new BufferedReader(new FileReader(file));
                                 String s = input.readLine();
                                 newShape.restoreState(s);
@@ -1841,14 +1841,14 @@ public class RigidShapeBuilder extends ApplicationTemplate
             {
                 JMenuItem item = new JMenuItem("Open...");
                 item.setAccelerator(KeyStroke.getKeyStroke(
-                    KeyEvent.VK_O, Toolkit.getDefaultToolkit().getMenuShortcutKeyMaskEx()));
+                    KeyEvent.VK_O, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
                 item.setActionCommand(OPEN);
                 item.addActionListener(controller);
                 menu.add(item);
 
                 item = new JMenuItem("Save...");
                 item.setAccelerator(KeyStroke.getKeyStroke(
-                    KeyEvent.VK_S, Toolkit.getDefaultToolkit().getMenuShortcutKeyMaskEx()));
+                    KeyEvent.VK_S, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
                 item.setActionCommand(SAVE);
                 item.addActionListener(controller);
                 menu.add(item);
@@ -1878,7 +1878,7 @@ public class RigidShapeBuilder extends ApplicationTemplate
                 {
                     JMenuItem item = new JMenuItem(mode.getMode());
                     item.setAccelerator(KeyStroke.getKeyStroke(mode.getShortcut(),
-                        Toolkit.getDefaultToolkit().getMenuShortcutKeyMaskEx()));
+                        Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
                     item.addActionListener(new ActionListener()
                     {
                         public void actionPerformed(ActionEvent e)
@@ -1914,7 +1914,7 @@ public class RigidShapeBuilder extends ApplicationTemplate
             {
                 JMenuItem item = new JMenuItem("Deselect");
                 item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D,
-                    Toolkit.getDefaultToolkit().getMenuShortcutKeyMaskEx()));
+                    Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
                 item.setActionCommand(CLEAR_SELECTION);
                 item.addActionListener(controller);
                 menu.add(item);

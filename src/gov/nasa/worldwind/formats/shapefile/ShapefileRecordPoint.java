@@ -13,7 +13,7 @@ import java.nio.ByteBuffer;
 
 /**
  * Represents a Shapefile record with a point shape type. Point shapes represent a single x,y coordinate pair.
- * <p>
+ * <p/>
  * Point shapes may have an optional z-coordinate or m-coordinate that accompanies the x,y coordinate pair. If a Point
  * has a z-coordinate, then <code>{@link #getZ()}</code> returns a non-<code>null</code> value. If a Point has an
  * m-coordinate, then <code>{@link #getM()}</code> returns a non-<code>null</code> value.
@@ -26,17 +26,7 @@ public class ShapefileRecordPoint extends ShapefileRecord
     protected Double z; // non-null only for Z types
     protected Double m; // non-null only for Measure types with measures specified
 
-    /**
-     * Constructs a record instance from the given {@link java.nio.ByteBuffer}. The buffer's current position must be
-     * the start of the record, and will be the start of the next record when the constructor returns.
-     *
-     * @param shapeFile the parent {@link Shapefile}.
-     * @param buffer    the shapefile record {@link java.nio.ByteBuffer} to read from.
-     *
-     * @throws IllegalArgumentException if any argument is null or otherwise invalid.
-     * @throws gov.nasa.worldwind.exception.WWRuntimeException
-     *                                  if the record's shape type does not match that of the shapefile.
-     */
+    /** {@inheritDoc} */
     public ShapefileRecordPoint(Shapefile shapeFile, ByteBuffer buffer)
     {
         super(shapeFile, buffer);

@@ -157,13 +157,10 @@ public final class TextBuffer
     }
 
     /**
-     * Method called to initialize the buffer with a shared copy of data; this means that buffer will just have pointers
-     * to actual data.It also means that if anything is to be appended to the buffer, it will first have to unshare it
-     * (make a local copy).
-     *
-     * @param buf Undocumented.
-     * @param start Undocumented.
-     * @param len Undocumented.
+     * Method called to initialize the buffer with a shared copy of data;
+     * this means that buffer will just have pointers to actual data. It
+     * also means that if anything is to be appended to the buffer, it
+     * will first have to unshare it (make a local copy).
      */
     public void resetWithShared(char[] buf, int start, int len)
     {
@@ -321,7 +318,6 @@ public final class TextBuffer
     /**
      * Convenience method for converting contents of the buffer
      * into a {@link BigDecimal}.
-     * @return  Undocumented.
      */
     public BigDecimal contentsAsDecimal()
         throws NumberFormatException
@@ -345,7 +341,6 @@ public final class TextBuffer
     /**
      * Convenience method for converting contents of the buffer
      * into a Double value.
-     * @return  Undocumented.
      */
     public double contentsAsDouble()
         throws NumberFormatException
@@ -509,10 +504,9 @@ public final class TextBuffer
     }
 
     /**
-     * Method called to expand size of the current segment, to accomodate for more contiguous content.Usually only used
-     * when parsing tokens like names.
-     *
-     * @return Undocumented.
+     * Method called to expand size of the current segment, to
+     * accomodate for more contiguous content. Usually only
+     * used when parsing tokens like names.
      */
     public char[] expandCurrentSegment()
     {

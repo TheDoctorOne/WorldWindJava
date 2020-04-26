@@ -19,18 +19,18 @@ import java.awt.event.*;
  * This application shows the {@link gov.nasa.worldwind.layers.TerrainProfileLayer} in action with its various controls.
  * It allows you to view a real-time section profile graph for any place on the planet, at any scale - continent,
  * country or mountain range - just by moving the mouse.
- * <p>
+ * <p/>
  * It proves particularly useful to explore the ocean floors where the bathymetry data reveals important geologic
  * features.
  *
  * @author tag
  * @version $Id: TerrainProfiler.java 2109 2014-06-30 16:52:38Z tgaskins $
  */
-public class TerrainProfiler extends ApplicationTemplate {
-
+public class TerrainProfiler extends ApplicationTemplate
+{
     @SuppressWarnings("unchecked")
-    public static class AppFrame extends ApplicationTemplate.AppFrame {
-
+    public static class AppFrame extends ApplicationTemplate.AppFrame
+    {
         private String follow;
         private boolean showEyePosition;
         private boolean keepProportions;
@@ -43,10 +43,12 @@ public class TerrainProfiler extends ApplicationTemplate {
         private JCheckBox showEyeCheck;
         private TerrainProfileLayer tpl;
 
-        public AppFrame() {
+        public AppFrame()
+        {
             super(true, true, false);
 
-            try {
+            try
+            {
                 // Add TerrainProfileLayer
                 this.tpl = new TerrainProfileLayer();
                 this.tpl.setEventSource(this.getWwd());
@@ -64,29 +66,40 @@ public class TerrainProfiler extends ApplicationTemplate {
 
                 // Add control panel
                 this.getControlPanel().add(makeControlPanel(), BorderLayout.SOUTH);
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 e.printStackTrace();
             }
         }
 
-        private JPanel makeControlPanel() {
+        private JPanel makeControlPanel()
+        {
             JPanel controlPanel = new JPanel(new GridLayout(0, 1, 0, 4));
 
             // Show eye position check box
             JPanel buttonsPanel = new JPanel(new GridLayout(0, 2, 0, 0));
             this.showEyeCheck = new JCheckBox("Show eye");
-            this.showEyeCheck.addActionListener((ActionEvent actionEvent) -> {
-                showEyePosition = ((JCheckBox) actionEvent.getSource()).isSelected();
-                update();
+            this.showEyeCheck.addActionListener(new ActionListener()
+            {
+                public void actionPerformed(ActionEvent actionEvent)
+                {
+                    showEyePosition = ((JCheckBox) actionEvent.getSource()).isSelected();
+                    update();
+                }
             });
             this.showEyeCheck.setSelected(this.showEyePosition);
             this.showEyeCheck.setEnabled(this.follow.equals(TerrainProfileLayer.FOLLOW_EYE));
             buttonsPanel.add(this.showEyeCheck);
             // Keep proportions check box
             JCheckBox cbKeepProportions = new JCheckBox("Keep proportions");
-            cbKeepProportions.addActionListener((ActionEvent actionEvent) -> {
-                keepProportions = ((JCheckBox) actionEvent.getSource()).isSelected();
-                update();
+            cbKeepProportions.addActionListener(new ActionListener()
+            {
+                public void actionPerformed(ActionEvent actionEvent)
+                {
+                    keepProportions = ((JCheckBox) actionEvent.getSource()).isSelected();
+                    update();
+                }
             });
             cbKeepProportions.setSelected(this.keepProportions);
             buttonsPanel.add(cbKeepProportions);
@@ -94,9 +107,13 @@ public class TerrainProfiler extends ApplicationTemplate {
             // Zero based graph check box
             JPanel buttonsPanel2 = new JPanel(new GridLayout(0, 2, 0, 0));
             JCheckBox cb = new JCheckBox("Zero based");
-            cb.addActionListener((ActionEvent actionEvent) -> {
-                zeroBased = ((JCheckBox) actionEvent.getSource()).isSelected();
-                update();
+            cb.addActionListener(new ActionListener()
+            {
+                public void actionPerformed(ActionEvent actionEvent)
+                {
+                    zeroBased = ((JCheckBox) actionEvent.getSource()).isSelected();
+                    update();
+                }
             });
             cb.setSelected(this.zeroBased);
             buttonsPanel2.add(new JLabel("")); // Dummy
@@ -105,23 +122,26 @@ public class TerrainProfiler extends ApplicationTemplate {
             // Dimension combo
             JPanel dimensionPanel = new JPanel(new GridLayout(0, 2, 0, 0));
             dimensionPanel.add(new JLabel("  Dimension:"));
-            final JComboBox cbDimension = new JComboBox(new String[]{"Small", "Medium", "Large"});
-            cbDimension.addActionListener((ActionEvent actionEvent) -> {
-                String size = (String) cbDimension.getSelectedItem();
-                switch (size) {
-                    case "Small":
+            final JComboBox cbDimension = new JComboBox(new String[] {"Small", "Medium", "Large"});
+            cbDimension.addActionListener(new ActionListener()
+            {
+                public void actionPerformed(ActionEvent actionEvent)
+                {
+                    String size = (String) cbDimension.getSelectedItem();
+                    if (size.equals("Small"))
+                    {
                         graphDimension = new Dimension(250, 100);
-                        break;
-                    case "Medium":
+                    }
+                    else if (size.equals("Medium"))
+                    {
                         graphDimension = new Dimension(450, 140);
-                        break;
-                    case "Large":
+                    }
+                    else if (size.equals("Large"))
+                    {
                         graphDimension = new Dimension(655, 240);
-                        break;
-                    default:
-                        break;
+                    }
+                    update();
                 }
-                update();
             });
             cbDimension.setSelectedItem("Small");
             dimensionPanel.add(cbDimension);
@@ -129,17 +149,22 @@ public class TerrainProfiler extends ApplicationTemplate {
             // Profile length factor slider
             JPanel sliderPanel = new JPanel(new GridLayout(0, 1, 0, 0));
             JSlider s = new JSlider(JSlider.HORIZONTAL, 0, 30,
-                    (int) (this.profileLengthFactor * 10));  // -5 - 5 in tenth
+                (int) (this.profileLengthFactor * 10));  // -5 - 5 in tenth
             s.setMajorTickSpacing(10);
             s.setMinorTickSpacing(1);
             //s.setPaintTicks(true);
             //s.setPaintLabels(true);
             s.setToolTipText("Profile length");
-            s.addChangeListener((ChangeEvent event) -> {
-                JSlider s1 = (JSlider) event.getSource();
-                if (!s1.getValueIsAdjusting()) {
-                    profileLengthFactor = (double) s1.getValue() / 10;
-                    update();
+            s.addChangeListener(new ChangeListener()
+            {
+                public void stateChanged(ChangeEvent event)
+                {
+                    JSlider s = (JSlider) event.getSource();
+                    if (!s.getValueIsAdjusting())
+                    {
+                        profileLengthFactor = (double) s.getValue() / 10;
+                        update();
+                    }
                 }
             });
             sliderPanel.add(s);
@@ -154,35 +179,42 @@ public class TerrainProfiler extends ApplicationTemplate {
             // Follow behavior combo
             JPanel followPanel = new JPanel(new GridLayout(0, 2, 0, 0));
             followPanel.add(new JLabel("  Follow:"));
-            final JComboBox cbFollow = new JComboBox(new String[]{"View", "Cursor", "Eye", "None", "Object"});
-            cbFollow.addActionListener((ActionEvent actionEvent) -> {
-                String size = (String) cbFollow.getSelectedItem();
-                switch (size) {
-                    case "View":
+            final JComboBox cbFollow = new JComboBox(new String[] {"View", "Cursor", "Eye", "None", "Object"});
+            cbFollow.addActionListener(new ActionListener()
+            {
+                public void actionPerformed(ActionEvent actionEvent)
+                {
+                    String size = (String) cbFollow.getSelectedItem();
+                    if (size.equals("View"))
+                    {
                         follow = TerrainProfileLayer.FOLLOW_VIEW;
                         helpLabel.setEnabled(true);
                         showEyeCheck.setEnabled(false);
                         lengthSlider.setEnabled(true);
-                        break;
-                    case "Cursor":
+                    }
+                    else if (size.equals("Cursor"))
+                    {
                         follow = TerrainProfileLayer.FOLLOW_CURSOR;
                         helpLabel.setEnabled(false);
                         showEyeCheck.setEnabled(false);
                         lengthSlider.setEnabled(true);
-                        break;
-                    case "Eye":
+                    }
+                    else if (size.equals("Eye"))
+                    {
                         follow = TerrainProfileLayer.FOLLOW_EYE;
                         helpLabel.setEnabled(true);
                         showEyeCheck.setEnabled(true);
                         lengthSlider.setEnabled(true);
-                        break;
-                    case "None":
+                    }
+                    else if (size.equals("None"))
+                    {
                         follow = TerrainProfileLayer.FOLLOW_NONE;
                         helpLabel.setEnabled(true);
                         showEyeCheck.setEnabled(false);
                         lengthSlider.setEnabled(false);
-                        break;
-                    case "Object":
+                    }
+                    else if (size.equals("Object"))
+                    {
                         follow = TerrainProfileLayer.FOLLOW_OBJECT;
                         helpLabel.setEnabled(true);
                         showEyeCheck.setEnabled(true);
@@ -190,11 +222,9 @@ public class TerrainProfiler extends ApplicationTemplate {
                         OrbitView view = (OrbitView) getWwd().getView();
                         tpl.setObjectPosition(getWwd().getView().getEyePosition());
                         tpl.setObjectHeading(view.getHeading());
-                        break;
-                    default:
-                        break;
+                    }
+                    update();
                 }
-                update();
             });
             cbFollow.setSelectedItem("View");
             followPanel.add(cbFollow);
@@ -207,13 +237,14 @@ public class TerrainProfiler extends ApplicationTemplate {
             controlPanel.add(sliderPanel);
             controlPanel.add(textPanel);
             controlPanel.setBorder(
-                    new CompoundBorder(BorderFactory.createEmptyBorder(9, 9, 9, 9), new TitledBorder("Terrain profile")));
+                new CompoundBorder(BorderFactory.createEmptyBorder(9, 9, 9, 9), new TitledBorder("Terrain profile")));
             controlPanel.setToolTipText("Terrain profile controls");
             return controlPanel;
         }
 
         // Update worldwind
-        private void update() {
+        private void update()
+        {
             this.tpl.setFollow(this.follow);
             this.tpl.setKeepProportions(this.keepProportions);
             this.tpl.setZeroBased(this.zeroBased);
@@ -224,7 +255,8 @@ public class TerrainProfiler extends ApplicationTemplate {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         ApplicationTemplate.start("WorldWind Terrain Profiler", AppFrame.class);
     }
 }

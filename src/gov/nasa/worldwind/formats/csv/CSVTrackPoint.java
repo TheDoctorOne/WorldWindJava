@@ -21,7 +21,7 @@ public class CSVTrackPoint implements TrackPoint
     private double altitude;
 
     /**
-     * @param words The point coordinate values.
+     * @param words
      * @throws IllegalArgumentException if <code>words</code> is null or has length less than 1
      */
     public CSVTrackPoint(String[] words)
@@ -87,7 +87,7 @@ public class CSVTrackPoint implements TrackPoint
     }
 
     /**
-     * @param latitude The latitude value.
+     * @param latitude
      * @throws IllegalArgumentException if <code>latitude</code> is less than -90 or greater than 90
      */
     public void setLatitude(double latitude)
@@ -108,7 +108,7 @@ public class CSVTrackPoint implements TrackPoint
     }
 
     /**
-     * @param longitude The new longitude value.
+     * @param longitude
      * @throws IllegalArgumentException if <code>longitude</code> is less than -180 or greater than 180
      */
     public void setLongitude(double longitude)

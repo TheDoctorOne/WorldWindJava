@@ -21,9 +21,7 @@ import java.awt.*;
  * @author pabercrombie
  * @version $Id: GlobeBrowserBalloon.java 2272 2014-08-25 23:24:45Z tgaskins $
  * @see gov.nasa.worldwind.render.AbstractBrowserBalloon
- * @deprecated 
  */
-@Deprecated
 public class GlobeBrowserBalloon extends AbstractBrowserBalloon implements GlobeBalloon
 {
     protected class OrderedGlobeBrowserBalloon extends OrderedBrowserBalloon
@@ -111,6 +109,7 @@ public class GlobeBrowserBalloon extends AbstractBrowserBalloon implements Globe
     /**
      * Computes and stores this balloon's model and screen coordinates. This assigns balloon coordinate properties as
      * follows:
+     * <p/>
      * <ul> <li><code>placePoint</code> - this balloon's model-coordinate point, according to its altitude mode.</li>
      * <li><code>screenPlacePoint</code> - screen-space projection of the <code>placePoint</code>.</li>
      * <li><code>screenOffset</code> - the balloon frame's screen-coordinate offset from this balloon's
@@ -118,7 +117,7 @@ public class GlobeBrowserBalloon extends AbstractBrowserBalloon implements Globe
      * rectangle.</li> <li><code>screenExtent</code> - this balloon's screen-coordinate bounding rectangle.</li>
      * <li><code>screenPickExtent</code> - this balloon's screen-coordinate bounding rectangle, including area covered
      * by the balloon's pickable outline.</li> <li><code>webViewRect</code> - the WebView's screen-coordinate content
-     * frame.</li> <li><code>eyeDistance</code> - always 0.</li></ul>
+     * frame.</li> <li><code>eyeDistance</code> - always 0.</li>
      *
      * @param dc the current draw context.
      */
@@ -213,7 +212,7 @@ public class GlobeBrowserBalloon extends AbstractBrowserBalloon implements Globe
 
     /**
      * {@inheritDoc}
-     * <p>
+     * <p/>
      * Overridden to return <code>false</code> if the balloon's position is either behind the <code>View's</code> near
      * clipping plane or in front of the <code>View's</code> far clipping plane. Otherwise this delegates to the super
      * class' behavior.
@@ -240,7 +239,7 @@ public class GlobeBrowserBalloon extends AbstractBrowserBalloon implements Globe
 
     /**
      * {@inheritDoc}
-     * <p>
+     * <p/>
      * Overridden to use this balloon's position as the picked object's position.
      */
     @Override
